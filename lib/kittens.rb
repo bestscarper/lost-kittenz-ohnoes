@@ -1,6 +1,6 @@
 require "kittens/version"
 require_relative "kittens/directions"
-require_relative "kittens/kitten_locator"
+require_relative "kittens/locator"
 require_relative "kittens/search_party"
 require_relative "kittens/forensics"
 
