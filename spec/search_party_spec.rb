@@ -1,11 +1,17 @@
 require 'spec_helper'
-require_relative '../lib/kittens/search_party'
+require 'rspec/mocks'
 
-describe SearchParty do
-  it 'can generate a search for given coords' do
-    api = Forensics.new
-    party = SearchParty.fromLocation([3 4])
-    expect(party.x).to eq 3
-    expect(party.y).to eq 4
+module Kittens
+
+  describe SearchParty do
+    it 'it calls out the search part using the forensics api' do
+      api = instance_double("Kitten::Forensics", 'xyz@example.com')
+
+      expect(api).to receive(:location).with(55,66)
+
+      search_party = Kittens::SearchParty.new(api)
+      search_party.launch(55,66)
+    end
   end
+
 end
