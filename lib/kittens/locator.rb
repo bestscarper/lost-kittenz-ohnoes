@@ -38,8 +38,11 @@ module Kittens
 
     def fromForensics
       directions = @api.directions
-      # values.map(&:length).inject(0) {|x,y| x + y}
-      return %w(1 2)
+      here = SearchVector.new(0,0,0)
+      directions.each do |instruction|
+        here = here.follow(instruction)
+      end
+      return [here.x, here.y]
     end
   end
 end
