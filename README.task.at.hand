@@ -1,0 +1,43 @@
+e.g.
+
+curl http://which-technical-exercise.herokuapp.com/api/ash-which@best-scarper.co.uk/directions
+{"directions":["forward","right","forward","forward","forward","left","forward","forward","left","right","forward","right","forward","forward","right","forward","forward","left"]}
+
+Response is via GET (odd)
+curl http://which-technical-exercise.herokuapp.com/api/ash-which@best-scarper.co.uk/location/:x/:y
+
+"She starts facing north at coordinate (0, 0) and uses relative directions to find her way"
+
+I suspect the email address is a seed for the directions issued :)
+
+Directions.fromForensics(email)
+
+@coords = KittenLocator.given(directions)
+
+response = SearchParty.fromLocation(@coords).launch()
+
+ruby map/reduce(fold)
+  values.map(&:length).inject(0) {|x,y| x + y}
+
+Main business logic is in parseing the directions...
+stdlib has Net::HTTP and JSON which should be enough
+Basic TDD should be able to prove direction finder works.
+
+no directions => stand still
+forward => 0,1
+turn right and forward => 1,0
+turn left and forward => -1, 0
+in a circle forward, right, forward, right, forward, right, forward => 0,0
+
+Response from client
+not 200 => exception
+not json => exception
+no 'directions' => exception
+illegal instruction => exception
+
+kitten-location.rb <email>
+ - validate email?
+ - KittenLocate.given(Directions.fromForensics)
+ - SearchParty.given(cooard).send
+
+
