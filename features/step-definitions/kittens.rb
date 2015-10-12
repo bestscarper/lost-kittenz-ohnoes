@@ -9,14 +9,7 @@ Given(/^accurate forensic data is available$/) do
 end
 
 When(/^we send a search party to the correct location$/) do
-  forensics = Kittens::Forensics.new("cucumber@example.com")
-
-  locator = Kittens::Locator.new(forensics)
-  location = locator.fromForensics
-
-  party = Kittens::SearchParty.new(forensics)
-  party.launch(location[0],location[1])
-  # 'launch' is a command - we expect it to succeed
+  Kittens::hayelp('cucumber@example.com')
 end
 
 Then(/^the kitten is found$/) do
